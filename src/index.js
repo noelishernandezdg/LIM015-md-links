@@ -13,8 +13,7 @@ const routeAbsolute = (route) => path.isAbsolute(route) ? route : path.resolve(r
 console.log(routeAbsolute('../Prueba/hola.txt'), 13);
 
 const isDirectory = (route) => fs.statSync(route).isDirectory();
-console.log(isDirectory('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\Prueba'), 16)
-// console.log(routeExists('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\Prueba\\hola.txt'));
+console.log(isDirectory('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\Prueba'), 16);
 
 // const getFile = (route) => {
 //   let newArr = [];
