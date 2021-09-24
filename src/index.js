@@ -1,26 +1,33 @@
 /* eslint-disable linebreak-style */
-// Acá estoy requiriendo usar librería nativa de node File System
+// Acá estoy requiriendo usar File System
 const fs = require('fs');
 
-// Acá estoy requiriendo usar el metodo que resulve rutas relativas
+// Acá estoy requiriendo usar path
 const path = require('path');
+
+// Estamos declarando
+const route = process.argv[2];
+console.log(route, 1111);
 
 // Función para saber si la ruta existe
 const routeExists = (route) => fs.existsSync(route);
 
 // Función para saber si la ruta es absoluta y resolverla
-const routeAbsolute = (route) => path.isAbsolute(route) ? route : path.resolve(route);
-console.log(routeAbsolute('../Prueba/hola.txt'), 13);
+const routeAbsolute = (route) => (path.isAbsolute(route) ? route : path.resolve(route));
+console.log(routeAbsolute(route), 16);
 
 const isDirectory = (route) => fs.statSync(route).isDirectory();
-console.log(isDirectory('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\Prueba'), 16)
-// console.log(routeExists('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\Prueba\\hola.txt'));
+console.log(isDirectory(route), 19);
+
+const fileMd = (route) => ((path.extname(route) === '.md'));
+console.log(fileMd(route), 22);
 
 // const getFile = (route) => {
 //   let newArr = [];
 //   const readDir = fs.readdir(route);
 //   if (isDirectory(route)) {
 //     readDir.forEach((element => {
+//       console.log(element, 26);
 //       path.join(route, '/', element);
 //       const elementFile = getFile(path.resolve(route, '/', element));
 //       elementFile.concat(newArr);
@@ -30,6 +37,16 @@ console.log(isDirectory('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-
 //   }
 //   return newArr;
 // };
+
+// const getFile = (route) => {
+//   let newArr = [];
+//   const readDir = fs.readdir(route);
+//   if (isDirectory(route)) {
+
+//   } else {
+
+//   }
+// }
 
 module.exports = {
   routeExists,
