@@ -10,16 +10,16 @@ const route = process.argv[2];
 console.log(route, 1111);
 
 // Función para saber si la ruta existe
-const routeExists = (route) => fs.existsSync(route);
+const routeExists = () => fs.existsSync(route);
 
 // Función para saber si la ruta es absoluta y resolverla
-const routeAbsolute = (route) => (path.isAbsolute(route) ? route : path.resolve(route));
+const routeAbsolute = () => (path.isAbsolute(route) ? route : path.resolve(route));
 console.log(routeAbsolute(route), 16);
 
-const isDirectory = (route) => fs.statSync(route).isDirectory();
+const isDirectory = () => fs.statSync(route).isDirectory();
 console.log(isDirectory(route), 19);
 
-const fileMd = (route) => ((path.extname(route) === '.md'));
+const fileMd = () => ((path.extname(route) === '.md'));
 console.log(fileMd(route), 22);
 
 // const getFile = (route) => {
