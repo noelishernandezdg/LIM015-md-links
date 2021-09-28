@@ -25,7 +25,7 @@ const isDirectory = (ruta) => fs.statSync(ruta).isDirectory();
 // console.log(isDirectory(route), 19);
 
 // Función para saber si es un archivo md
-const fileMd = (ruta) => ((path.extname(ruta) === '.md') ? [ruta] : []);
+const fileMd = (ruta) => ((path.extname(ruta) === '.md') ? ruta : false);
 // console.log(fileMd(route), 22);
 
 // función para leer archivos
@@ -37,20 +37,29 @@ const readDir = (ruta) => fs.readdirSync(ruta);
 // console.log(readDir(route), 29);
 
 const getFile = (ruta) => {
+  let arrFile = [];
   if (isDirectory(ruta)) {
-    const documentDir = readDir(ruta);
-    return documentDir.reduce((accumulator, e) => {
-      const pathAbsolute = path.join(ruta, '\\', e);
-      console.log(pathAbsolute, 46);
-      return accumulator.concat(getFile(pathAbsolute));
-    }, []);
+    readDir(ruta).forEach((e) => {
+      const newRoute = path.join(ruta, e);
+      const recursive = getFile(newRoute);
+      arrFile = arrFile.concat(recursive);
+    });
+  } else {
+    fileMd(ruta) ? arrFile.push(ruta) : false;
   }
-  return (fileMd(ruta));
+  return arrFile;
 };
 
 console.log(getFile('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba'), 50);
 
+// const getLinks = (ruta) => {
+//   getFile(ruta).forEach((e) => {
+//     const readFileMd = readFiles(e);
+//     console.log(readFileMd);
+//   });
+// };
 
+// console.log(getLinks('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\pruebaDos\\hola.md'));
 
 module.exports = {
   routeExists,
