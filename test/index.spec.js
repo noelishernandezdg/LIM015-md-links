@@ -1,4 +1,6 @@
-const { routeExists, routeAbsolute, isDirectory } = require('../src/index.js');
+const {
+  routeExists, routeAbsolute, isDirectory, isFile, fileMd, readFiles, readDir,
+} = require('../src/index.js');
 
 describe('If routeExists', () => {
   it('es una función', () => {
@@ -20,9 +22,33 @@ describe('If isDirectory', () => {
     expect(typeof isDirectory).toBe('function');
   });
   it('si la ruta es un directorio', () => {
-    expect(isDirectory('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\Prueba')).toBe(true);
+    expect(isDirectory('../LIM015-md-links')).toBe(true);
   });
   it('si la ruta no es un directorio', () => {
-    expect(isDirectory('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\Prueba\\hola.txt')).toBe(false);
+    expect(isDirectory('../LIM015-md-links/src/prueba/hola.txt')).toBe(false);
+  });
+});
+
+describe('If file', () => {
+  it('es una función', () => {
+    expect(typeof isFile).toBe('function');
+  });
+  it('si la ruta es un archivo', () => {
+    expect(isFile('../LIM015-md-links/src/prueba/pepito.md')).toBe(true);
+  });
+  it('si la ruta es un archivo', () => {
+    expect(isFile('../LIM015-md-links')).toBe(false);
+  });
+});
+
+describe('If fileMd', () => {
+  it('es una función', () => {
+    expect(typeof fileMd).toBe('function');
+  });
+  it('si es un archivo md', () => {
+    expect(fileMd('../LIM015-md-links/src/prueba/pepito.md')).toEqual('../LIM015-md-links/src/prueba/pepito.md');
+  });
+  it('si la ruta no es un archivo md', () => {
+    expect(isFile('../LIM015-md-links/src/prueba/hola.txt')).toEqual([]);
   });
 });
