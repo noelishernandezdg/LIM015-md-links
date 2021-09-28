@@ -5,6 +5,9 @@ const fs = require('fs');
 // Acá estoy requiriendo usar path
 const path = require('path');
 
+// Acá estay requieriendo marked
+const marked = require('marked');
+
 // Estamos declarando
 // const route = process.argv[2];
 // console.log(route, 1111);
@@ -60,6 +63,7 @@ console.log(getFile('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-link
 // };
 
 // console.log(getLinks('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\pruebaDos\\hola.md'));
+
 
 module.exports = {
   routeExists,
