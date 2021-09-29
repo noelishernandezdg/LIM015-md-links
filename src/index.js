@@ -33,7 +33,7 @@ const fileMd = (ruta) => ((path.extname(ruta) === '.md') ? ruta : false);
 
 // función para leer archivos
 const readFiles = (ruta) => fs.readFileSync(ruta, 'utf-8');
-// console.log(readFiles(route), 26);
+// console.log(readFiles('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\pepito.md'), 26);
 
 // Función para leer directorio
 const readDir = (ruta) => fs.readdirSync(ruta);
@@ -53,24 +53,39 @@ const getFile = (ruta) => {
   return arrFile;
 };
 
-console.log(getFile('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba'), 50);
+// console.log(getFile('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba'), 50);
 
-// const getLinks = (ruta) => {
-//   getFile(ruta).forEach((e) => {
-//     const readFileMd = readFiles(e);
-//     console.log(readFileMd);
-//   });
-// };
+const getLinks = (ruta) => {
+  let arrLinks = [];
+  const renderer = new marked.Renderer();
+  getFile(ruta).forEach((e) => {
+    const readFileMd = readFiles(e);
+    console.log(readFileMd);
+    renderer.link = (href, title, text) => {
+      const obj = {
+        href: href,
+        text: text,
+        file: ruta,
+      }
+      arrLinks.push(obj);
+    };
+    marked(readFileMd, { renderer });
+  });
+  // const filterLinks = arrLinks.filter(url => url.href.slice(0, 4) == 'http');
+  return arrLinks;
+};
 
-// console.log(getLinks('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\pruebaDos\\hola.md'));
+// console.log(getLinks('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\pepito.md'), 77);
 
 
 module.exports = {
   routeExists,
   routeAbsolute,
-  isDirectory,
   isFile,
+  isDirectory,
   fileMd,
   readFiles,
   readDir,
+  getFile,
+  getLinks,
 };
