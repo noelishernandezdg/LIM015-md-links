@@ -1,23 +1,32 @@
 const {
-  routeExists, routeAbsolute, isDirectory, isFile, fileMd, readFiles, readDir,
+  routeExists, routeAbsolute, isFile, isDirectory, fileMd, readFiles, readDir, getFile, getLinks
 } = require('../src/index.js');
 
-describe('If routeExists', () => {
+describe('routeExists', () => {
   it('es una función', () => {
     expect(typeof routeExists).toBe('function');
   });
+  it('si la ruta existe', () => {
+    expect(routeExists('../LIM015-md-links/src/prueba/hola.txt')).toBe(true);
+  });
+  it('si laruta no existe', () => {
+    expect(routeExists('../LIM015-md-links/src/hola.txt')).toBe(false);
+  });
 });
 
-describe('If routeAbsolute', () => {
+describe('routeAbsolute', () => {
   it('es una función', () => {
     expect(typeof routeAbsolute).toBe('function');
   });
   it('si la ruta es relativa pasar a absoluta', () => {
     expect(routeAbsolute('../Prueba/hola.txt')).toEqual('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\Prueba\\hola.txt');
   });
+  it('si la ruta es absoluta debe devolver la misma ruta', () => {
+    expect(routeAbsolute('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\Prueba\\hola.txt')).toEqual('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\Prueba\\hola.txt');
+  });
 });
 
-describe('If isDirectory', () => {
+describe('isDirectory', () => {
   it('es una función', () => {
     expect(typeof isDirectory).toBe('function');
   });
@@ -29,7 +38,7 @@ describe('If isDirectory', () => {
   });
 });
 
-describe('If file', () => {
+describe('file', () => {
   it('es una función', () => {
     expect(typeof isFile).toBe('function');
   });
@@ -41,7 +50,7 @@ describe('If file', () => {
   });
 });
 
-describe('If fileMd', () => {
+describe('fileMd', () => {
   it('es una función', () => {
     expect(typeof fileMd).toBe('function');
   });
@@ -49,6 +58,59 @@ describe('If fileMd', () => {
     expect(fileMd('../LIM015-md-links/src/prueba/pepito.md')).toEqual('../LIM015-md-links/src/prueba/pepito.md');
   });
   it('si la ruta no es un archivo md', () => {
-    expect(isFile('../LIM015-md-links/src/prueba/hola.txt')).toEqual([]);
+    expect(fileMd('../LIM015-md-links/src/prueba/hola.txt')).toEqual(false);
+  });
+});
+
+describe('readFiles', () => {
+  it('es una función', () => {
+    expect(typeof readFiles).toBe('function');
+  });
+  it('debería leer el archivo', () => {
+    expect(readFiles('../LIM015-md-links/src/prueba/noelis.md')).toBe('Solo hice este archivo a ver si por fin me pasa el test de readFile auida.');
+  });
+});
+
+describe('readDir', () => {
+  it('es una función', () => {
+    expect(typeof readDir).toBe('function');
+  });
+  it('debería leer un directorio', () => {
+    expect(readDir('../LIM015-md-links/src/prueba')).toEqual(['hola.txt', 'noelis.md', 'pepito.md', 'portafolio-samy.md', 'pruebaDos']);
+  });
+});
+
+describe('getFile', () => {
+  it('es una función', () => {
+    expect(typeof getFile).toBe('function');
+  });
+  it('debería devolver un arr de arr de chivos md', () => {
+    expect(getFile('../LIM015-md-links/src/prueba')).toEqual([
+      '..\\LIM015-md-links\\src\\prueba\\noelis.md',
+      '..\\LIM015-md-links\\src\\prueba\\pepito.md',
+      '..\\LIM015-md-links\\src\\prueba\\portafolio-samy.md',
+      '..\\LIM015-md-links\\src\\prueba\\pruebaDos\\hola.md',
+    ]);
+  });
+});
+
+describe('getLinks', () => {
+  it('es una función', () => {
+    expect(typeof getLinks).toBe('function');
+  });
+  it('debería retornar un objeto con los links', () => {
+    const resultado = [
+      {
+        href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer',
+        text: 'marked',
+        file: '../LIM015-md-links/src/prueba/pepito.md'
+      },
+      {
+        href: 'https://markjs.io/',
+        text: 'mark.js',
+        file: '../LIM015-md-links/src/prueba/pepito.md'
+      }
+    ];
+    expect(getLinks('../LIM015-md-links/src/prueba/pepito.md')).toEqual(resultado);
   });
 });
