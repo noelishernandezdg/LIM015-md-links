@@ -1,12 +1,5 @@
 # Portafolio Samantha Moreno
 
-## Índice
-
-* [1. Acerca de mi.](#1-Acerca-de-mi)
-* [2. Habilidades y Herramientas.](#2-Habilidades-y-Herramientas)
-* [3. Proyectos en los que he trabajado.](#3-Proyectos-en-los-que-he-trabajado)
-* [4. Autor.](#4-Autor)
-
 ***
 
 ![Sami](src/images/Samantha.png)
