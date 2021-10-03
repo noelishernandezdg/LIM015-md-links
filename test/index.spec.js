@@ -136,6 +136,6 @@ describe('status', () => {
         message: 'ok'
       }
     ];
-    expect(getLinks('../LIM015-md-links/src/prueba/pepito.md')).toEqual(resultado);
+    expect(status('../LIM015-md-links/src/prueba/pepito.md')).toEqual(resultado);
   });
 });
