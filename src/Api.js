@@ -8,6 +8,8 @@ const path = require('path');
 // Acá estay requieriendo marked
 const marked = require('marked');
 
+const fetch = require('node-fetch');
+
 // Estamos declarando
 // const route = process.argv[2];
 // console.log(route, 1111);
@@ -48,7 +50,7 @@ const getFile = (ruta) => {
       arrFile = arrFile.concat(recursive);
     });
   } else {
-    fileMd(ruta) ? arrFile.push(ruta) : false;
+    fileMd(ruta) ? arrFile.push(routeAbsolute(ruta)) : false;
   }
   return arrFile;
 };
@@ -60,7 +62,7 @@ const getLinks = (ruta) => {
   const renderer = new marked.Renderer();
   getFile(ruta).forEach((e) => {
     const readFileMd = readFiles(e);
-    console.log(readFileMd);
+    // console.log(readFileMd);
     renderer.link = (href, title, text) => {
       const obj = {
         href: href,
@@ -75,8 +77,38 @@ const getLinks = (ruta) => {
   return arrLinks;
 };
 
-// console.log(getLinks('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\pepito.md'), 77);
+// console.log(getLinks('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba'), 77);
 
+const status = (ruta) => {
+  const promiseFetch = getLinks(ruta).map((objLink) => {
+    return fetch(objLink.href)
+      .then((res) => {
+      const objRes = {
+        href: objLink.href,
+        text: objLink.text,
+        file: objLink.file,
+        status: res.status,
+        message: (res.status >= 200 && res.status < 400) ? 'ok' : 'fail',
+      }
+      return objRes;
+    })
+    .catch((err) => {
+      const objErr = {
+        href: objLink.href,
+        text: objLink.text,
+        file: objLink.file,
+        status: err.status,
+        message: 'Error request:' + err.statusText,
+      }
+      return objErr;
+    });
+});
+return Promise.all(promiseFetch);
+};
+
+// status('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba')
+//   .then(resolve => console.log(resolve))
+//   .catch(reject => console.log(reject))
 
 module.exports = {
   routeExists,
@@ -88,4 +120,5 @@ module.exports = {
   readDir,
   getFile,
   getLinks,
+  status,
 };
