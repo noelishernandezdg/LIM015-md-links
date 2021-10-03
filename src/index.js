@@ -50,7 +50,7 @@ const getFile = (ruta) => {
       arrFile = arrFile.concat(recursive);
     });
   } else {
-    fileMd(ruta) ? arrFile.push(ruta) : false;
+    fileMd(ruta) ? arrFile.push(routeAbsolute(ruta)) : false;
   }
   return arrFile;
 };
@@ -120,4 +120,5 @@ module.exports = {
   readDir,
   getFile,
   getLinks,
+  status,
 };
