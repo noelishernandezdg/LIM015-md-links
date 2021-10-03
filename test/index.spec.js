@@ -1,5 +1,5 @@
 const {
-  routeExists, routeAbsolute, isFile, isDirectory, fileMd, readFiles, readDir, getFile, getLinks
+  routeExists, routeAbsolute, isFile, isDirectory, fileMd, readFiles, readDir, getFile, getLinks, status
 } = require('../src/Api.js');
 
 describe('routeExists', () => {
@@ -86,10 +86,10 @@ describe('getFile', () => {
   });
   it('debería devolver un arr de arr de chivos md', () => {
     expect(getFile('../LIM015-md-links/src/prueba')).toEqual([
-      '..\\LIM015-md-links\\src\\prueba\\noelis.md',
-      '..\\LIM015-md-links\\src\\prueba\\pepito.md',
-      '..\\LIM015-md-links\\src\\prueba\\portafolio-samy.md',
-      '..\\LIM015-md-links\\src\\prueba\\pruebaDos\\hola.md',
+      "C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\noelis.md",
+      "C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\pepito.md",
+      "C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\portafolio-samy.md",
+      "C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba\\pruebaDos\\hola.md",
     ]);
   });
 });
@@ -112,5 +112,30 @@ describe('getLinks', () => {
       }
     ];
     expect(getLinks('../LIM015-md-links/src/prueba/pepito.md')).toEqual(resultado);
+  });
+});
+
+describe('status', () => {
+  it('es una función', () => {
+    expect(typeof status).toBe('function');
+  });
+  it('debería retornar una promesa que al resolverse trae un objeto con los links y sus estatus', () => {
+    const resultado = [
+      {
+        href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer',
+        text: 'marked',
+        file: '../LIM015-md-links/src/prueba/pepito.md',
+        status: 200,
+        message: 'ok'
+      },
+      {
+        href: 'https://markjs.io/',
+        text: 'mark.js',
+        file: '../LIM015-md-links/src/prueba/pepito.md',
+        status: 200,
+        message: 'ok'
+      }
+    ];
+    expect(status('../LIM015-md-links/src/prueba/pepito.md')).toEqual(resultado);
   });
 });
