@@ -1,6 +1,6 @@
 const {
   routeExists, routeAbsolute, isFile, isDirectory, fileMd, readFiles, readDir, getFile, getLinks
-} = require('../src/index.js');
+} = require('../src/Api.js');
 
 describe('routeExists', () => {
   it('es una función', () => {
