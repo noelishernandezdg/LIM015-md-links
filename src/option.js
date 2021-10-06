@@ -1,5 +1,5 @@
 // Contidad total de links
-const total = (links) => 'total: ' + links;
+const total = (links) => 'total: ' + links.length;
 
 // contidad de links únicos
 const unique = (links) => {
@@ -13,6 +13,15 @@ const broken = (links) => {
   const brokenResult = links.filter((link) => link.status >= 400);
   return 'Broken: ' + brokenResult.length;
 };
+
+// const stats = (links) => {
+//   return total + unique;
+// }
+
+// const validateStats = (links) => {
+//   return total + unique + broken;
+// }
+
 
 // --------------------------------------------Mensajes de ayuda----------------------------------------
 
@@ -81,6 +90,8 @@ module.exports = {
   unique,
   broken,
   hepl,
+  // stats,
+  // validateStats,
   pathDoesNotExist,
   doesNotHaveMdFiles,
   thereAreNoLinks,
