@@ -106,7 +106,7 @@ const status = (ruta) => {
 return Promise.all(promiseFetch);
 };
 
-// status('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba')
+// status('../LIM015-md-links/src/prueba/pepito.md')
 //   .then(resolve => console.log(resolve))
 //   .catch(reject => console.log(reject))
 
