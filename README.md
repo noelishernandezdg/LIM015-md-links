@@ -18,11 +18,11 @@ Estos archivos Markdown usualmente contienen links que algunas veces están roto
 
 - <code>**Diagrama de flujo API**</code>
 
-![Diagrama de flujo Api](img\Api.jpg) 
+![Diagrama de flujo Api](img/Api.jpg) 
 
 - <code>**Diagrama de flujo CLI**</code>
 
-![Diagrama de flujo Api](img\cli.jpg)
+![Diagrama de flujo Api](img/cli.jpg)
   
 ***1. JavaScript API***  
 Conjunto de módulos donde:
