@@ -1,5 +1,5 @@
 // Contidad total de links
-const total = (links) => 'total: ' + links.length;
+const total = (links) => 'total: ' + links.length; 
 
 // contidad de links únicos
 const unique = (links) => {
@@ -25,21 +25,17 @@ const broken = (links) => {
 
 // --------------------------------------------Mensajes de ayuda----------------------------------------
 
-const hepl = `
-─────────────────────────────────────────────────────────────   ¿Necesitas ayuda?
-─██████──██████─██████████████─██████████████─██████─────────   ***Ejecuta el programa así: md-links <ruta> <comando>
-─██░░██──██░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░██─────────   ***Puedes ingresar los siguientes comandos:
-─██░░██──██░░██─██░░██████████─██░░██████░░██─██░░██─────────    --validate: devuelve (href, title, file, status y
-─██░░██──██░░██─██░░██─────────██░░██──██░░██─██░░██─────────    message de cada link).
-─██░░██████░░██─██░░██████████─██░░██████░░██─██░░██─────────    --stats: devuelve (links totales y links únicos).
-─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░░░░░░░░░██─██░░██─────────    --validate --stats: devuelve (links totales, únicos
-─██░░██████░░██─██░░██████████─██░░██████████─██░░██─────────     y rotos).
-─██░░██──██░░██─██░░██─────────██░░██─────────██░░██─────────
-─██░░██──██░░██─██░░██████████─██░░██─────────██░░██████████─
-─██░░██──██░░██─██░░░░░░░░░░██─██░░██─────────██░░░░░░░░░░██─
-─██████──██████─██████████████─██████─────────██████████████─
-─────────────────────────────────────────────────────────────
+const help = `
+
+██╗░░██╗███████╗██╗░░░░░██████╗░ ¿Necesitas ayuda?
+██║░░██║██╔════╝██║░░░░░██╔══██╗ ***Ejecuta el programa así: md-links <ruta> <comando>
+███████║█████╗░░██║░░░░░██████╔╝ ***Puedes ingresar los siguientes comandos:
+██╔══██║██╔══╝░░██║░░░░░██╔═══╝░ --validate: devuelve (href, title, file, status y message de cada link).
+██║░░██║███████╗███████╗██║░░░░░ --stats: devuelve (links totales y links únicos).
+╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░░░░  --validate --stats: devuelve (links totales, únicos y rotos).
 `;
+
+// console.log(help);
 
 const pathDoesNotExist = `
 
@@ -58,6 +54,8 @@ const pathDoesNotExist = `
 ╚══════╝╚═╝░░╚═╝╚═╝╚═════╝░░░░╚═╝░░░╚══════╝
 `;
 
+// console.log(pathDoesNotExist);
+
 const doesNotHaveMdFiles = `
 
 ███╗░░██╗░█████╗░  ████████╗██╗███████╗███╗░░██╗███████╗
@@ -75,6 +73,8 @@ const doesNotHaveMdFiles = `
 ╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░╚═╝░░░░╚════╝░╚═════╝░  ╚═╝░░░░░╚═╝╚═════╝░
 `;
 
+// console.log(doesNotHaveMdFiles);
+
 const thereAreNoLinks = `
 
 ███╗░░██╗░█████╗░  ██╗░░██╗░█████╗░██╗░░░██╗  ██╗░░░░░██╗███╗░░██╗██╗░░██╗░██████╗
@@ -85,11 +85,13 @@ const thereAreNoLinks = `
 ╚═╝░░╚══╝░╚════╝░  ╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░  ╚══════╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═════╝░
 `;
 
+// console.log(thereAreNoLinks);
+
 module.exports = {
   total,
   unique,
   broken,
-  hepl,
+  help,
   // stats,
   // validateStats,
   pathDoesNotExist,
