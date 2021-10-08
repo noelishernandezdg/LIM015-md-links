@@ -18,11 +18,11 @@ Estos archivos Markdown usualmente contienen links que algunas veces están roto
 
 - <code>**Diagrama de flujo API**</code>
 
-![Diagrama de flujo Api](img\Api.jpg) 
+![Diagrama de flujo Api](img/Api.jpg) 
 
 - <code>**Diagrama de flujo CLI**</code>
 
-![Diagrama de flujo Api](img\cli.jpg)
+![Diagrama de flujo Api](img/cli.jpg)
   
 ***1. JavaScript API***  
 Conjunto de módulos donde:
@@ -66,19 +66,19 @@ Esta aplicación debe poder ejecutarse de la siguiente manera a través de la te
 
 |`md-links ../LIM015-md-links/src/prueba/hola.txt` |
 |----------------------------|
-| ![imagen2](img\noTieneArchivosMd.png)   |
+| ![imagen2](img/noTieneArchivosMd.png)   |
 
   - **Cuando ingresas una ruta de un archivo markdown que no posee links**
 
 |`md-links ../LIM015-md-links/src/prueba/pruebaDos/hola.md` |
 |----------------------------|
-| ![imagen3](img\noHayLinks.png)   |
+| ![imagen3](img/noHayLinks.png)   |
 
   -**Cuando ingresas el comando --help** 
 
 |`md-links --help`  ó  `md-links ../LIM015-md-links/src/prueba/pruebaDos/hola.md --help` |
 |----------------------------|
-| ![imagen4](img\help.png)   |
+| ![imagen4](img/help.png)   |
 
   - **Cuando ingresas la ruta sin un option**
 
