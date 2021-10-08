@@ -1,5 +1,6 @@
-const { routeExists, getFile, getLinks, status }
-  = require('./Api.js');
+const { routeExists, getFile, getLinks, status } = require('./Api.js');
+
+const { pathDoesNotExist, doesNotHaveMdFiles, thereAreNoLinks } = require('./option.js');
 
 const mdLinks = (path, option) => {
   return new Promise(function (resolve, reject) {
@@ -14,13 +15,13 @@ const mdLinks = (path, option) => {
           resolve(getLinks(path));
         }
       } else {
-        rejec('no existen links');
+        rejec(thereAreNoLinks);
       }
     } else {
-      reject('No existen archivos md');
+      reject(doesNotHaveMdFiles);
       }
   } else {
-    reject('La ruta no existe');
+      reject(pathDoesNotExist);
     }
   });
 };
