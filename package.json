@@ -35,6 +35,6 @@
     "node-fetch": "^2.6.0"
   },
   "bin": {
-    "mdLinks": "src/cli.js"
+    "md-links": "src/cli.js"
   }
 }
