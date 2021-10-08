@@ -106,7 +106,7 @@ describe('getLinks', () => {
         file: '../LIM015-md-links/src/prueba/pepito.md'
       },
       {
-        href: 'https://markjs.io/',
+        href: 'https://markjs.io/123',
         text: 'mark.js',
         file: '../LIM015-md-links/src/prueba/pepito.md'
       }
@@ -129,13 +129,13 @@ describe('status', () => {
         message: 'ok'
       },
       {
-        href: 'https://markjs.io/',
+        href: 'https://markjs.io/123',
         text: 'mark.js',
         file: '../LIM015-md-links/src/prueba/pepito.md',
-        status: 200,
-        message: 'ok'
+        status: 404,
+        message: 'fail'
       }
     ];
-    expect(status('../LIM015-md-links/src/prueba/pepito.md')).toEqual(resultado);
+    expect(status('../LIM015-md-links/src/prueba/pepito.md').then(resultado)).toEqual(resultado);
   });
 });

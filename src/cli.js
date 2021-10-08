@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { validate } = require('jest-validate');
+// const { validate } = require('jest-validate');
 const { mdLinks } = require('./mdLinks.js');
 const { total, unique, broken, help, pathDoesNotExist, doesNotHaveMdFiles, thereAreNoLinks } = require('./option');
 
@@ -9,7 +9,22 @@ const options = process.argv.slice(3);
 
 const optionValidate = options.includes('--validate');
 const optionStats = options.includes('--stats');
-const thereIsNoRoute = path === '' || path === '--hepl' || path === '--Valitade' || path === '--stats';
+const thereIsNoRoute = path === '' || path === '--help' || path === '--Valitade' || path === '--stats';
+const optionHelp = options.includes('--help');
+
+// mdLinks(path, { validate: false })
+//   .then((resolve) => console.log(resolve))
+//   .catch((reject) => {
+//     if (reject === 'La ruta no existe') {
+//       console.log(pathDoesNotExist)
+//     } else if (reject === 'No tiene archivos md') {
+//       console.log(doesNotHaveMdFiles)
+//     } else if (reject === 'No hay links') {
+//       console.log(thereAreNoLinks)
+//     } else {
+//       console.log(help)
+//     }
+// });
 
 // Si el usuario no ingresa una ruta
 if (thereIsNoRoute) {
@@ -33,7 +48,7 @@ if (thereIsNoRoute) {
     })
     .catch((reject) => console.log(reject));
 // si hay una ruta y options --validate y --stats
-} else if (optionValidate && optionStats) {
+} else if (optionValidate && optionStats || optionStats && optionValidate) {
   mdLinks(path, { validate: true })
     .then((resolve) => {
       console.log(total(resolve));
@@ -42,5 +57,5 @@ if (thereIsNoRoute) {
     })
     .catch((reject) => console.log(reject));
 } else {
-  console.log(hepl);
+  console.log(help);
 };
