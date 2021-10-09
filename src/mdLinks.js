@@ -1,6 +1,6 @@
 const { routeExists, getFile, getLinks, status } = require('./Api.js');
 
-const { pathDoesNotExist, doesNotHaveMdFiles, thereAreNoLinks } = require('./option.js');
+const { pathDoesNotExist, doesNotHaveMdFiles, thereAreNoLinks } = require('./message.js');
 
 const mdLinks = (path, option) => {
   return new Promise(function (resolve, reject) {

@@ -2,6 +2,8 @@ const {
   routeExists, routeAbsolute, isFile, isDirectory, fileMd, readFiles, readDir, getFile, getLinks, status
 } = require('../src/Api.js');
 
+const fetch = require('../__mock__/mock_fetch.js');
+
 describe('routeExists', () => {
   it('es una función', () => {
     expect(typeof routeExists).toBe('function');
@@ -104,23 +106,39 @@ describe('getLinks', () => {
         href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer',
         text: 'marked',
         file: '../LIM015-md-links/src/prueba/pepito.md'
-      },
-      {
-        href: 'https://markjs.io/123',
-        text: 'mark.js',
-        file: '../LIM015-md-links/src/prueba/pepito.md'
       }
     ];
     expect(getLinks('../LIM015-md-links/src/prueba/pepito.md')).toEqual(resultado);
   });
 });
 
+
+const data = [
+  {
+    href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer',
+    text: 'marked',
+    file: '../LIM015-md-links/src/prueba/pepito.md',
+    status: 200,
+    message: 'ok'
+  },
+];
+
+const error = [
+  {
+    href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer111',
+    text: 'marked',
+    file: '../LIM015-md-links/src/prueba/pepito.md',
+    status: 404,
+    message: 'fail'
+  },
+];
+
 describe('status', () => {
   it('es una función', () => {
     expect(typeof status).toBe('function');
   });
-  it('debería retornar una promesa que al resolverse trae un objeto con los links y sus estatus', () => {
-    const resultado = [
+  it('debería retornar links y sus estatus', () => {
+    const dataResult = [
       {
         href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer',
         text: 'marked',
@@ -128,14 +146,25 @@ describe('status', () => {
         status: 200,
         message: 'ok'
       },
+    ];
+    fetch.mockResolvedValue(data);
+    return status(data).then((e) => {
+      expect(e).toEqual(dataResult);
+    });
+});
+  it('debería retornar links y sus estatus en error', () => {
+    const errorResult = [
       {
-        href: 'https://markjs.io/123',
-        text: 'mark.js',
+        href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer111',
+        text: 'marked',
         file: '../LIM015-md-links/src/prueba/pepito.md',
         status: 404,
         message: 'fail'
-      }
+      },
     ];
-    expect(status('../LIM015-md-links/src/prueba/pepito.md').then(resultado)).toEqual(resultado);
+    fetch.mockResolvedValue(error);
+    return status(error).then((e) => {
+      expect(e).toEqual(errorResult);
+    })
   });
 });
