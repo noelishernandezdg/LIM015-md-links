@@ -2,7 +2,8 @@
 
 // const { validate } = require('jest-validate');
 const { mdLinks } = require('./mdLinks.js');
-const { total, unique, broken, help, pathDoesNotExist, doesNotHaveMdFiles, thereAreNoLinks } = require('./option');
+const { total, unique, broken, } = require('./option');
+const { help } = require('./message.js');
 
 const path = process.argv[2];
 const options = process.argv.slice(3);
