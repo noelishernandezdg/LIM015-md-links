@@ -63,6 +63,7 @@ const thereAreNoLinks = `
 // console.log(thereAreNoLinks);
 
 module.exports = {
+  help,
   pathDoesNotExist,
   doesNotHaveMdFiles,
   thereAreNoLinks,
