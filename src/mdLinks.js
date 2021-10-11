@@ -5,8 +5,8 @@ const { pathDoesNotExist, doesNotHaveMdFiles, thereAreNoLinks } = require('./mes
 const mdLinks = (path, option) => {
   return new Promise(function (resolve, reject) {
     if(routeExists(path)) {
-    if (getFile(path) !== 0) {
-      if (getLinks(path) !== 0) {
+    if (getFile(path).length > 0) {
+      if (getLinks(path).length > 0) {
         if (option.validate === true) {
           resolve(status(path));
           // .then((result) => resolve(result))
@@ -15,7 +15,7 @@ const mdLinks = (path, option) => {
           resolve(getLinks(path));
         }
       } else {
-        rejec(thereAreNoLinks);
+        reject(thereAreNoLinks);
       }
     } else {
       reject(doesNotHaveMdFiles);

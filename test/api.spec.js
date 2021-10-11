@@ -113,25 +113,25 @@ describe('getLinks', () => {
 });
 
 
-const data = [
-  {
-    href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer',
-    text: 'marked',
-    file: '../LIM015-md-links/src/prueba/pepito.md',
-    status: 200,
-    message: 'ok'
-  },
-];
+// const data = [
+//   {
+//     href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer',
+//     text: 'marked',
+//     file: '../LIM015-md-links/src/prueba/pepito.md',
+//     status: 200,
+//     message: 'ok'
+//   },
+// ];
 
-const error = [
-  {
-    href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer111',
-    text: 'marked',
-    file: '../LIM015-md-links/src/prueba/pepito.md',
-    status: 404,
-    message: 'fail'
-  },
-];
+// const error = [
+//   {
+//     href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer111',
+//     text: 'marked',
+//     file: '../LIM015-md-links/src/prueba/pepito.md',
+//     status: 404,
+//     message: 'fail'
+//   },
+// ];
 
 describe('status', () => {
   it('es una función', () => {
@@ -147,9 +147,9 @@ describe('status', () => {
         message: 'ok'
       },
     ];
-    fetch.mockResolvedValue(data);
-    return status(data).then((e) => {
-      expect(e).toEqual(dataResult);
+    status(dataResult[0].file)
+      .then((result) => {
+      expect(result).toEqual(dataResult);
     });
 });
   it('debería retornar links y sus estatus en error', () => {
@@ -162,8 +162,8 @@ describe('status', () => {
         message: 'fail'
       },
     ];
-    fetch.mockResolvedValue(error);
-    return status(error).then((e) => {
+    status(errorResult[0].file)
+      .catch((e) => {
       expect(e).toEqual(errorResult);
     })
   });
