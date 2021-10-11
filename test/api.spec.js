@@ -147,7 +147,8 @@ describe('status', () => {
         message: 'ok'
       },
     ];
-    status(dataResult[0].file)
+    fetch.mockResolvedValue(dataResult);
+    return status(dataResult[0].file)
       .then((result) => {
       expect(result).toEqual(dataResult);
     });
@@ -162,9 +163,10 @@ describe('status', () => {
         message: 'fail'
       },
     ];
-    status(errorResult[0].file)
-      .catch((e) => {
-      expect(e).toEqual(errorResult);
+    fetch.mockResolvedValue(errorResult);
+    return status(errorResult[0].file)
+      .catch((result) => {
+      expect(result).toEqual(errorResult);
     })
   });
 });
