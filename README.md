@@ -40,15 +40,15 @@ Esta librería esta hecha en node.js en conjunto con CommonJS Modules, es decir,
 Esta librería puedes instalarla desde [npm](https://www.npmjs.com/package/andu15-mdlinks) o desde [github](https://github.com/Andu15/LIM015-md-links)
 
 ##### Instalación por npm
-`$ npm install lisy13-mdlinks`  
+`$ npm install md-links.lisy13`  
 
-`$ npm i andu15-mdlinks`
+`$ npm i md-links.lisy13`
 ##### Instalación por github
 
 `$ npm install lisy13/LIM015-md-links`
 ##### Usabilidad
 
-`const mdLinks = require('lisy13-mdlinks');`
+`const mdLinks = require('mdl-inks.lisy13');`
 
 Esta aplicación debe poder ejecutarse de la siguiente manera a través de la terminal:  
 
@@ -58,7 +58,7 @@ Esta aplicación debe poder ejecutarse de la siguiente manera a través de la te
 
   - **Cuando no ingresas una ruta o ingresas una ruta incorrecta**
 
-| `md-links`  ó  `md-links estoNoEsUnaRuta` |
+| `md-links`  ó  `md-links wsrsatgftyf` |
 |-------------------|
 | ![imagen1](img/laRutaNoExiste.png)  |
 
