@@ -10,8 +10,6 @@ const help = `
 ╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░░░░  --validate --stats: devuelve (links totales, únicos y rotos).
 `;
 
-// console.log(help);
-
 const pathDoesNotExist = `
 
 ██╗░░░░░░█████╗░  ██████╗░██╗░░░██╗████████╗░█████╗░  ███╗░░██╗░█████╗░
@@ -28,8 +26,6 @@ const pathDoesNotExist = `
 ███████╗██╔╝╚██╗██║██████╔╝░░░██║░░░███████╗
 ╚══════╝╚═╝░░╚═╝╚═╝╚═════╝░░░░╚═╝░░░╚══════╝
 `;
-
-// console.log(pathDoesNotExist);
 
 const doesNotHaveMdFiles = `
 
@@ -48,8 +44,6 @@ const doesNotHaveMdFiles = `
 ╚═╝░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░░╚═╝░░░░╚════╝░╚═════╝░  ╚═╝░░░░░╚═╝╚═════╝░
 `;
 
-// console.log(doesNotHaveMdFiles);
-
 const thereAreNoLinks = `
 
 ███╗░░██╗░█████╗░  ██╗░░██╗░█████╗░██╗░░░██╗  ██╗░░░░░██╗███╗░░██╗██╗░░██╗░██████╗
@@ -59,8 +53,6 @@ const thereAreNoLinks = `
 ██║░╚███║╚█████╔╝  ██║░░██║██║░░██║░░░██║░░░  ███████╗██║██║░╚███║██║░╚██╗██████╔╝
 ╚═╝░░╚══╝░╚════╝░  ╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░  ╚══════╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═════╝░
 `;
-
-// console.log(thereAreNoLinks);
 
 module.exports = {
   help,

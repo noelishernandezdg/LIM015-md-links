@@ -9,8 +9,6 @@ const mdLinks = (path, option) => {
       if (getLinks(path).length > 0) {
         if (option.validate === true) {
           resolve(status(path));
-          // .then((result) => resolve(result))
-          // .catch((error) => resolve(error));
         } else {
           resolve(getLinks(path));
         }

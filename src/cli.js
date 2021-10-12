@@ -13,20 +13,6 @@ const optionStats = options.includes('--stats');
 const thereIsNoRoute = path === '' || path === '--help' || path === '--Valitade' || path === '--stats';
 const optionHelp = options.includes('--help');
 
-// mdLinks(path, { validate: false })
-//   .then((resolve) => console.log(resolve))
-//   .catch((reject) => {
-//     if (reject === 'La ruta no existe') {
-//       console.log(pathDoesNotExist)
-//     } else if (reject === 'No tiene archivos md') {
-//       console.log(doesNotHaveMdFiles)
-//     } else if (reject === 'No hay links') {
-//       console.log(thereAreNoLinks)
-//     } else {
-//       console.log(help)
-//     }
-// });
-
 // Si el usuario no ingresa una ruta
 if (thereIsNoRoute) {
   console.log(help);
