@@ -1,11 +1,11 @@
 # MDLINKS
 ## INDICE:
-[1. Preambulo:](#preambulo)  
+[1. Preámbulo:](#preambulo)  
 [2. Poyecto:](#proyecto)  
-[3. Guía de uso e istalación:](#guia-de-uso-e-instalacióm)  
+[3. Guía de uso e instalación:](#guia-de-uso-e-instalacióm)  
 [4. Autora:](#Autora)  
 ***
-### Preambulo 🔥
+### Preámbulo 🔥
 Markdown es un lenguaje de marcado que facilita la aplicación de formato a un texto empleando una serie de caracteres de una forma especial. En principio, fue pensado para elaborar textos cuyo destino iba a ser la web con más rapidez y sencillez que si estuviésemos empleando directamente HTML. Y si bien ese suele ser el mejor uso que podemos darle, también podemos emplearlo para cualquier tipo de texto, independientemente de cual vaya a ser su destino.
 
 En la actualidad existen editores de texto, servicios web y extensiones que hacen uso de Markdown y suele ser muy común encontrar varios archivos en ese formato en cualquier tipo de repositorio (empezando por el tradicional README.md).
