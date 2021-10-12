@@ -48,7 +48,7 @@ Esta librería puedes instalarla desde [npm](https://www.npmjs.com/package/andu1
 `$ npm install lisy13/LIM015-md-links`
 ##### Usabilidad
 
-`const mdLinks = require('mdl-inks.lisy13');`
+`const mdLinks = require('md-links.lisy13');`
 
 Esta aplicación debe poder ejecutarse de la siguiente manera a través de la terminal:  
 
