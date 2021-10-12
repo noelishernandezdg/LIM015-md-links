@@ -1,11 +1,11 @@
 # MDLINKS
 ## INDICE:
-[1. Preambulo:](#preambulo)  
+[1. Preámbulo:](#preambulo)  
 [2. Poyecto:](#proyecto)  
-[3. Guía de uso e istalación:](#guia-de-uso-e-instalacióm)  
+[3. Guía de uso e instalación:](#guia-de-uso-e-instalacióm)  
 [4. Autora:](#Autora)  
 ***
-### Preambulo 🔥
+### Preámbulo 🔥
 Markdown es un lenguaje de marcado que facilita la aplicación de formato a un texto empleando una serie de caracteres de una forma especial. En principio, fue pensado para elaborar textos cuyo destino iba a ser la web con más rapidez y sencillez que si estuviésemos empleando directamente HTML. Y si bien ese suele ser el mejor uso que podemos darle, también podemos emplearlo para cualquier tipo de texto, independientemente de cual vaya a ser su destino.
 
 En la actualidad existen editores de texto, servicios web y extensiones que hacen uso de Markdown y suele ser muy común encontrar varios archivos en ese formato en cualquier tipo de repositorio (empezando por el tradicional README.md).
@@ -40,15 +40,15 @@ Esta librería esta hecha en node.js en conjunto con CommonJS Modules, es decir,
 Esta librería puedes instalarla desde [npm](https://www.npmjs.com/package/andu15-mdlinks) o desde [github](https://github.com/Andu15/LIM015-md-links)
 
 ##### Instalación por npm
-`$ npm install lisy13-mdlinks`  
+`$ npm install md-links.lisy13`  
 
-`$ npm i andu15-mdlinks`
+`$ npm i md-links.lisy13`
 ##### Instalación por github
 
 `$ npm install lisy13/LIM015-md-links`
 ##### Usabilidad
 
-`const mdLinks = require('lisy13-mdlinks');`
+`const mdLinks = require('md-links.lisy13');`
 
 Esta aplicación debe poder ejecutarse de la siguiente manera a través de la terminal:  
 
@@ -58,7 +58,7 @@ Esta aplicación debe poder ejecutarse de la siguiente manera a través de la te
 
   - **Cuando no ingresas una ruta o ingresas una ruta incorrecta**
 
-| `md-links`  ó  `md-links estoNoEsUnaRuta` |
+| `md-links`  ó  `md-links wsrsatgftyf` |
 |-------------------|
 | ![imagen1](img/laRutaNoExiste.png)  |
 
