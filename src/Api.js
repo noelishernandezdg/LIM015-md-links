@@ -10,24 +10,18 @@ const marked = require('marked');
 
 const fetch = require('node-fetch');
 
-// Función para saber si la ruta existe
 const routeExists = (ruta) => fs.existsSync(ruta);
 
-// Función para saber si la ruta es absoluta y resolverla
 const routeAbsolute = (ruta) => (path.isAbsolute(ruta) ? ruta : path.resolve(ruta));
 
 const isFile = (ruta) => fs.statSync(ruta).isFile();
 
-// Función para saber si es un directorio
 const isDirectory = (ruta) => fs.statSync(ruta).isDirectory();
 
-// Función para saber si es un archivo md
 const fileMd = (ruta) => ((path.extname(ruta) === '.md') ? ruta : false);
 
-// función para leer archivos
 const readFiles = (ruta) => fs.readFileSync(ruta, 'utf-8');
 
-// Función para leer directorio
 const readDir = (ruta) => fs.readdirSync(ruta);
 
 const getFile = (ruta) => {
@@ -50,7 +44,6 @@ const getLinks = (ruta) => {
   const renderer = new marked.Renderer();
   getFile(ruta).forEach((e) => {
     const readFileMd = readFiles(e);
-    // console.log(readFileMd);
     renderer.link = (href, title, text) => {
       const obj = {
         href: href,
