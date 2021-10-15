@@ -24,10 +24,6 @@ const mdLinks = (path, option) => {
   });
 };
 
-// mdLinks('C:\\Users\\USUARIO\\Documents\\ProyectosLAB\\LIM015-md-links\\src\\prueba', { validate: true })
-//   .then(resolve => console.log(resolve))
-//   .catch(reject => console.log(reject))
-
 module.exports = {
   mdLinks
 }

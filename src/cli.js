@@ -10,7 +10,7 @@ const options = process.argv.slice(3);
 
 const optionValidate = options.includes('--validate');
 const optionStats = options.includes('--stats');
-const thereIsNoRoute = path === '' || path === '--help' || path === '--Valitade' || path === '--stats';
+const thereIsNoRoute = path === '' || path === '--help' || path === '--Validate' || path === '--stats';
 const optionHelp = options.includes('--help');
 
 // Si el usuario no ingresa una ruta

@@ -112,27 +112,6 @@ describe('getLinks', () => {
   });
 });
 
-
-// const data = [
-//   {
-//     href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer',
-//     text: 'marked',
-//     file: '../LIM015-md-links/src/prueba/pepito.md',
-//     status: 200,
-//     message: 'ok'
-//   },
-// ];
-
-// const error = [
-//   {
-//     href: 'https://www.tabnine.com/code/javascript/functions/marked/Renderer111',
-//     text: 'marked',
-//     file: '../LIM015-md-links/src/prueba/pepito.md',
-//     status: 404,
-//     message: 'fail'
-//   },
-// ];
-
 describe('status', () => {
   it('es una función', () => {
     expect(typeof status).toBe('function');
